@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header class="header" (click)="toggleChat()">
+    <mat-card-title>Session {{ session.sessionId }}</mat-card-title>
+    <mat-card-subtitle>Last message: {{ session.messages[session.messages.length - 1].datetime | date: 'short' }}</mat-card-subtitle>
+  </mat-card-header>
+  <ng-container *ngIf="open">
+    <mat-card-content class="messages-container" #scroll [scrollTop]="scroll.scrollHeight">
+      <div
+        class="message"
+        *ngFor="let message of session.messages; trackBy: trackById"
+        [ngClass]="{ 'message-user': message.by === '__user', 'message-cs': message.by === '__cs' }">
+        {{ message.text }}
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <form (ngSubmit)="submit($event)">
+        <mat-form-field class="input-wrapper">
+          <input matInput [(ngModel)]="input" name="input">
+        </mat-form-field>
+      </form>
+    </mat-card-actions>
+  </ng-container>
+</mat-card>

@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb-base",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "comma-dangle": 0,
+    "space-before-function-paren": "off",
+    "consistent-return": "off",
+    "arrow-parens": "off",
+    "function-paren-newline": "off",
+    "object-curly-newline": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/webpack.*.js"]}]
+  }
+}

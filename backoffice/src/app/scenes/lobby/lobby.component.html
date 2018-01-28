@@ -1,0 +1,5 @@
+<halp-chat
+  *ngFor="let session of sessions; trackBy: trackById"
+  [session]="session"
+  (sendMessage)="sendMessage($event)">
+</halp-chat>

@@ -1,0 +1,7 @@
+<ng-container *ngIf="connectionStatus === 'ready'; else loading">
+  <router-outlet></router-outlet>
+</ng-container>
+<ng-template #loading>
+  <h4>Connecting to the server</h4>
+  <p>Status: {{ connectionStatus }}</p>
+</ng-template>
